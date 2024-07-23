@@ -1,4 +1,5 @@
 import style from "./Header.module.css";
+
 export default function Header() {
   return (
     <header>
@@ -8,16 +9,16 @@ export default function Header() {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="#0">Catalog</a>
+            <a href="/catalog">Catalog</a>
           </li>
           <li>
-            <a href="#0">Add furniture</a>
+            <a href="/add-furniture">Add furniture</a>
           </li>
           <li>
-            <a href="#0">Login</a>
+            <a href="/login">Login</a>
           </li>
           <li>
-            <a href="#0">Regisrer</a>
+            <a href="/register">Regisrer</a>
           </li>
           <li>
             <a href="#0">Logout</a>
