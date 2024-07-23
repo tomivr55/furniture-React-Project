@@ -1,4 +1,5 @@
 import style from "./Login.module.css";
+import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
@@ -18,7 +19,7 @@ export default function Login() {
         <div className={style.info}>
           <p>
             If you don't have an account yet
-            <a href="/register">Sign up</a>
+            <Link to="/register">Register</Link>
           </p>
         </div>
       </div>
