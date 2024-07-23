@@ -21,7 +21,7 @@ export default function Header() {
             <a href="/register">Regisrer</a>
           </li>
           <li>
-            <a href="#0">Logout</a>
+            <a href="/logout">Logout</a>
           </li>
         </ul>
       </nav>
