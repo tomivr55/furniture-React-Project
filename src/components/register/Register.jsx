@@ -6,7 +6,7 @@ export default function Register() {
     <div className={style.container}>
       <div className={style.box}>
         <form>
-          <label>Register</label>
+          <h1 className={style.title}>Register</h1>
           <input type="text" name="txt" placeholder="User name" required="" />
           <input type="email" name="email" placeholder="Email" required="" />
           <input
@@ -22,7 +22,7 @@ export default function Register() {
             required=""
           />
           <input type="tel" name="tel" placeholder="Phone number" required="" />
-          <button>Register</button>
+          <button className={style.register}>Register</button>
         </form>
         <div className={style.info}>
           <p>

@@ -17,7 +17,7 @@
   flex-direction: column;
 }
 
-label {
+.title {
   color: #fff;
   font-size: 2.3em;
   justify-content: center;
@@ -39,7 +39,7 @@ input {
   outline: none;
   border-radius: 5px;
 }
-button {
+.register {
   width: 80%;
   height: 60px;
   margin: 10px auto;
@@ -55,7 +55,8 @@ button {
   transition: 0.3s ease-in;
   cursor: pointer;
 }
-button:hover {
+
+.register:hover {
   background: #6d44b8;
 }
 

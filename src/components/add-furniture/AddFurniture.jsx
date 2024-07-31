@@ -5,7 +5,7 @@ export default function AddFutniture() {
   return (
     <div className={style.container}>
       <form className={style.box}>
-        <h1>Add Furniture</h1>
+        <h1 className={style.addTitle}>Add Furniture</h1>
         <div className={style.main}>
           <div className={style.left}>
             <input type="text" name="name" placeholder="Name..." required="" />
@@ -30,7 +30,12 @@ export default function AddFutniture() {
             />
           </div>
           <div className={style.right}>
-            <input type="text" name="" placeholder="Made from..." required="" />
+            <input
+              type="text"
+              name="madeFrom"
+              placeholder="Made from..."
+              required=""
+            />
             <input
               type="text"
               name="imgUrl"

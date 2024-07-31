@@ -1,0 +1,14 @@
+.allFurniture {
+  margin: 0 auto;
+  width: 90%;
+  height: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 4em;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

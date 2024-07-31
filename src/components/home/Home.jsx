@@ -6,7 +6,7 @@ export default function Home() {
     <>
       <div className={style.container}>
         <div className={style.text}>
-          <h1>
+          <h1 className={style.mainTitle}>
             COMMERCIAL ADVICE ON FURNITURE THAT WILL SUIT YOUR HOME, GARDEN AND
             WORKPLACE
           </h1>

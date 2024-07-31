@@ -1,0 +1,60 @@
+.card {
+  border: 3px solid greenyellow;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 1em;
+  padding: 20px;
+  background: linear-gradient(to bottom, #1e194e, #302b63, #24243e);
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+  max-width: 600px;
+}
+
+.textSection {
+  border: 3px solid pink;
+  width: 60%;
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+}
+
+.imageSection {
+  border: 3px solid yellow;
+  display: flex;
+  justify-content: center;
+  width: 50%;
+}
+
+.postPic {
+  height: 200px;
+}
+
+.postTitle {
+  font-size: 1.5em;
+  border: 3px solid white;
+  color: #fff;
+  margin: 10px;
+}
+
+.postText {
+  color: #fff;
+  border: 3px solid blueviolet;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75em;
+  background: #573b8a;
+  margin: 0 auto;
+  border: none;
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  border-radius: 5px;
+}

@@ -6,15 +6,15 @@ export default function Login() {
     <div className={style.container}>
       <div className={style.box}>
         <form>
-          <label>Login</label>
+          <h1 className={style.title}>Login</h1>
           <input type="email" name="email" placeholder="Email" required="" />
           <input
             type="password"
-            name="pswd"
+            name="password"
             placeholder="Password"
             required=""
           />
-          <button>Login</button>
+          <button className={style.login}>Login</button>
         </form>
         <div className={style.info}>
           <p>
