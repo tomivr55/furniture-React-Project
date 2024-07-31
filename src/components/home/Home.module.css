@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2em;
+  align-items: center;
+  width: 1500px;
+}
+
+.text {
+  padding: 20px;
+}
+.homePic {
+  width: 800px;
+}
