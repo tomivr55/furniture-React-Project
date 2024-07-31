@@ -1,15 +1,37 @@
 .container {
+  margin-top: 100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  gap: 2em;
+  justify-content: space-evenly;
+  gap: 3em;
   align-items: center;
-  width: 1500px;
+  color: #fff;
+}
+
+.text h1 {
+  font-size: 3em;
+  align-content: center;
 }
 
 .text {
-  padding: 20px;
+  padding: 40px;
 }
+
+.text p {
+  font-size: 1.5em;
+}
+
+.link {
+  text-decoration: none;
+  font-style: italic;
+  color: #fff;
+  border-radius: 5px;
+  background-color: #573b8a;
+  padding: 5px 10px;
+  transition: 0.3s ease-in;
+  margin-left: 10px;
+}
+
 .homePic {
-  width: 800px;
+  width: 1000px;
 }

@@ -1,23 +1,29 @@
 import style from "./Home.module.css";
+import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
     <>
-      <h1>Furniture Forum</h1>
       <div className={style.container}>
         <div className={style.text}>
+          <h1>
+            COMMERCIAL ADVICE ON FURNITURE THAT WILL SUIT YOUR HOME, GARDEN AND
+            WORKPLACE
+          </h1>
+          <hr></hr>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores et,
-            eveniet ducimus quia quibusdam quos suscipit totam vero obcaecati
-            dolorum. Exercitationem deleniti aliquam dolore eius sed praesentium
-            aspernatur. Nisi, facere? Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Dolores et, eveniet ducimus quia quibusdam quos
-            suscipit totam vero obcaecati dolorum. Exercitationem deleniti
-            aliquam dolore eius sed praesentium aspernatur. Nisi, facere?
+            Furniture is an integral part of any interior - it informs the
+            design and creates the environment within the workplace.
+          </p>
+          <p>
+            If you want to show your furniture, please
+            <Link className={style.link} to={"/login"}>
+              Login.
+            </Link>
           </p>
         </div>
-        <div className={style.pic}>
-          <img className={style.homePic} src="/home.png" alt="pic" />
+        <div>
+          <img className={style.homePic} src="/home1.png" alt="pic" />
         </div>
       </div>
     </>
