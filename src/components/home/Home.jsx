@@ -1,9 +1,10 @@
+import Furniture from "../catalog/furniture/Furniture";
 import style from "./Home.module.css";
 import { Link } from "react-router-dom";
 
 export default function Home() {
   return (
-    <>
+    <div className={style.allContent}>
       <div className={style.container}>
         <div className={style.text}>
           <h1 className={style.mainTitle}>
@@ -26,6 +27,11 @@ export default function Home() {
           <img className={style.homePic} src="/home1.png" alt="pic" />
         </div>
       </div>
-    </>
+      <div className={style.lastFurniture}>
+        <Furniture />
+        <Furniture />
+        <Furniture />
+      </div>
+    </div>
   );
 }

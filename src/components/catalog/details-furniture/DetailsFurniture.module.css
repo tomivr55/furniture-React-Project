@@ -1,0 +1,76 @@
+.furnitureDetails {
+  border: 5px solid greenyellow;
+  width: 500px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  background: linear-gradient(to bottom, #1e194e, #302b63, #24243e);
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+  max-width: 600px;
+}
+
+.detailsTitle {
+  color: #fff;
+  font-size: 2em;
+  justify-content: center;
+  display: flex;
+  margin: 10px;
+  font-weight: bold;
+  transition: 0.5s ease-in-out;
+}
+
+.detailInfo {
+  border: 5px solid red;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 2em;
+}
+
+.detailsText {
+}
+
+.detailsPic {
+}
+
+.whd {
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 00;
+}
+
+.detailsImg {
+  width: 200px;
+}
+
+.detailsDescriotion {
+  border: 5px solid yellow;
+  padding: 10px;
+}
+
+.detailsButtons {
+  border: 5px solid pink;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.75em;
+  background: #573b8a;
+  margin: 0 auto;
+  border: none;
+  color: #fff;
+  outline: none;
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.3s ease-in;
+  cursor: pointer;
+  border-radius: 5px;
+}

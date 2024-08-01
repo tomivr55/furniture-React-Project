@@ -35,3 +35,19 @@
 .homePic {
   width: 1000px;
 }
+
+.lastFurniture {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 30px;
+}
+
+.allContent {
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  height: 750px;
+}

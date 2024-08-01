@@ -1,7 +1,7 @@
 .allFurniture {
   margin: 0 auto;
   width: 90%;
-  height: 700px;
+  height: 740px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;

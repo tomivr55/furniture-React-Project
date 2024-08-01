@@ -1,4 +1,5 @@
 import style from "./Furniture.module.css";
+import { Link } from "react-router-dom";
 
 export default function Furniture() {
   return (
@@ -6,9 +7,9 @@ export default function Furniture() {
       <div className={style.textSection}>
         <h1 className={style.postTitle}>MILLERKNOLL MILLERKNOL</h1>
         <p className={style.postText}>Made from:</p>
-        <a href="#" className={style.button}>
+        <Link to="/details" className={style.button}>
           Details
-        </a>
+        </Link>
       </div>
 
       <div className={style.imageSection}>

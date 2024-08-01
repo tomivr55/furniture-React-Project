@@ -7,6 +7,7 @@ import Home from "./components/home/Home";
 import Footer from "./components/footer/Footer";
 import AddFutniture from "./components/add-furniture/AddFurniture";
 import Catalog from "./components/catalog/Catalog";
+import DetailsFurniture from "./components/catalog/details-furniture/DetailsFurniture";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="add-furniture" element={<AddFutniture />} />
         <Route path="/catalog" element={<Catalog />} />
+        <Route path="/details" element={<DetailsFurniture />} />
         <Route path="login" element={<Login />} />
         <Route path="register" element={<Register />} />
       </Routes>
