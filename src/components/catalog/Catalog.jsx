@@ -14,14 +14,11 @@ export default function Catalog() {
 
   return (
     <div className={style.allFurniture}>
-      <Furniture />
-      <Furniture />
-      <Furniture />
-      <Furniture />
-      <Furniture />
-      <Furniture />
-      <Furniture />
-      <Furniture />
+      {furniture.length > 0 ? (
+        furniture.map((post) => <Furniture key={post._id} {...post} />)
+      ) : (
+        <h2 className={style.empty}>No furniture yet</h2>
+      )}
     </div>
   );
 }
