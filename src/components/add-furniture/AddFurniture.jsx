@@ -32,7 +32,7 @@ export default function AddFutniture() {
           <div className={style.right}>
             <input
               type="text"
-              name="madeFrom"
+              name="material"
               placeholder="Made from..."
               required=""
             />
