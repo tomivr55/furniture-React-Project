@@ -9,10 +9,26 @@ import AddFutniture from "./components/add-furniture/AddFurniture";
 import Catalog from "./components/catalog/Catalog";
 import DetailsFurniture from "./components/catalog/details-furniture/DetailsFurniture";
 import ErrorPage from "./components/error/Error";
+import { AuthenticationContext } from "./contexts/AuthContext";
+import { useState } from "react";
 
 function App() {
+  const [authState, setAuthState] = useState({});
+
+  const changeAuthState = (state) => {
+    setAuthState(state);
+  };
+
+  const contextData = {
+    userId: authState._id,
+    email: authState.email,
+    accessToken: authState.accessToken,
+    isAuthenticated: !!authState.email,
+    changeAuthState,
+  };
+
   return (
-    <>
+    <AuthenticationContext.Provider value={contextData}>
       <Header />
 
       <Routes>
@@ -27,7 +43,7 @@ function App() {
       </Routes>
 
       <Footer />
-    </>
+    </AuthenticationContext.Provider>
   );
 }
 

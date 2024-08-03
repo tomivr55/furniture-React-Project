@@ -64,7 +64,7 @@ input {
   color: #fff;
   margin: 0 auto;
   font-style: italic;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-bottom: 30px;
 }
 
@@ -80,4 +80,10 @@ input {
 
 a:hover {
   background: #6d44b8;
+}
+
+.error {
+  color: darkred;
+  font-weight: bold;
+  font-size: 1.2em;
 }
