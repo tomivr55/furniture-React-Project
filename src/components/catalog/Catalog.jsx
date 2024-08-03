@@ -1,18 +1,9 @@
 import style from "./Catalog.module.css";
 import Furniture from "./furniture/Furniture";
-import * as furnitureAPI from "../../api/furnitureAPI";
-import { useEffect, useState } from "react";
+import { useGetAllFurniture } from "../../hooks/useFurniture";
 
 export default function Catalog() {
-  const [furniture, setFurniture] = useState([]);
-
-  useEffect(() => {
-    (async () => {
-      const data = await furnitureAPI.getAllFurnitures();
-      setFurniture(data);
-    })();
-  }, []);
-
+  const [furniture, setFurniture] = useGetAllFurniture();
   return (
     <div className={style.allFurniture}>
       {furniture.length > 0 ? (

@@ -13,7 +13,6 @@ export default function Home() {
       setLatestFurniture(data.reverse().slice(0, 3));
     })();
   }, []);
-  console.log(latestFurniture);
 
   return (
     <div className={style.allContent}>

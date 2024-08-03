@@ -1,18 +1,10 @@
+import { useGetOneFurniture } from "../../../hooks/useFurniture";
 import style from "./DetailsFurniture.module.css";
-import { useEffect, useState } from "react";
-import * as furnitureAPI from "../../../api/furnitureAPI";
 import { useParams } from "react-router-dom";
 
 export default function DetailsFurniture() {
-  const [furniture, setFurniture] = useState({});
   const { furnitureId } = useParams();
-
-  useEffect(() => {
-    (async () => {
-      const data = await furnitureAPI.getOneFurniture(furnitureId);
-      setFurniture(data);
-    })();
-  }, []);
+  const [furniture, setFurniture] = useGetOneFurniture(furnitureId);
 
   return (
     <div className={style.detailsContent}>
