@@ -1,8 +1,20 @@
+import { useEffect, useState } from "react";
 import Furniture from "../catalog/furniture/Furniture";
 import style from "./Home.module.css";
 import { Link } from "react-router-dom";
+import * as furnitureAPI from "../../api/furnitureAPI";
 
 export default function Home() {
+  const [latestFurniture, setLatestFurniture] = useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = await furnitureAPI.getAllFurnitures();
+      setLatestFurniture(data.reverse().slice(0, 3));
+    })();
+  }, []);
+  console.log(latestFurniture);
+
   return (
     <div className={style.allContent}>
       <div className={style.container}>
@@ -28,9 +40,9 @@ export default function Home() {
         </div>
       </div>
       <div className={style.lastFurniture}>
-        <Furniture />
-        <Furniture />
-        <Furniture />
+        {latestFurniture.map((post) => (
+          <Furniture key={post._id} {...post} />
+        ))}
       </div>
     </div>
   );

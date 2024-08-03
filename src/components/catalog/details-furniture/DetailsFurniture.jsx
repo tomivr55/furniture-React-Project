@@ -1,34 +1,42 @@
 import style from "./DetailsFurniture.module.css";
+import { useEffect, useState } from "react";
+import * as furnitureAPI from "../../../api/furnitureAPI";
+import { useParams } from "react-router-dom";
 
 export default function DetailsFurniture() {
+  const [furniture, setFurniture] = useState({});
+  const { furnitureId } = useParams();
+
+  useEffect(() => {
+    (async () => {
+      const data = await furnitureAPI.getOneFurniture(furnitureId);
+      setFurniture(data);
+    })();
+  }, []);
+
   return (
     <div className={style.detailsContent}>
       <div className={style.furnitureDetails}>
-        <h1 className={style.detailsTitle}>Chair</h1>
+        <h1 className={style.detailsTitle}>{furniture.name}</h1>
 
         <div className={style.detailInfo}>
           <div className={style.detailsText}>
-            <p className={style.whd}>Height: 25cm </p>
-            <p className={style.whd}>Width: 50cm</p>
-            <p className={style.whd}>Deepth: 70cm</p>
-            <p className={style.whd}>Made from: wood, iron</p>
+            <p className={style.whd}>Height: {furniture.height} </p>
+            <p className={style.whd}>Width: {furniture.width}</p>
+            <p className={style.whd}>Deepth: {furniture.depth}</p>
+            <p className={style.whd}>Made from: {furniture.material}</p>
           </div>
           <div className={style.line}></div>
           <div className={style.detailsPic}>
             <img
               className={style.detailsImg}
-              src="https://www.raftfurniture.co.uk/media/catalog/product/cache/0138abd0fcf6edc9284837bfb46ecd61/s/o/sol-chair-45x45x85cm-nt-1.0_2.jpg"
-              alt=""
+              src={furniture.imgUrl}
+              alt={furniture.name}
             />
           </div>
         </div>
         <div className={style.detailsDescriotion}>
-          <p className={style.whd}>
-            Description: Lorem, ipsum dolor sit amet consectetur adipisicing
-            elit. Eveniet voluptas veniam officia neque adipisci et animi quis
-            voluptate, asperiores nesciunt ex dignissimos, ad nihil deserunt
-            ipsam quaerat inventore explicabo sunt?
-          </p>
+          <p className={style.whd}>Description: {furniture.description}</p>
         </div>
         <div className={style.detailsButtons}>
           <a className={style.button} href="">

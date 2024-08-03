@@ -7,10 +7,11 @@ export default function Catalog() {
   const [furniture, setFurniture] = useState([]);
 
   useEffect(() => {
-    furnitureAPI.getAllFurnitures().then((result) => setFurniture(result));
+    (async () => {
+      const data = await furnitureAPI.getAllFurnitures();
+      setFurniture(data);
+    })();
   }, []);
-
-  console.log(furniture);
 
   return (
     <div className={style.allFurniture}>

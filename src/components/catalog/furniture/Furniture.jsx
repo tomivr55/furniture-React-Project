@@ -7,7 +7,7 @@ export default function Furniture({ _id, name, material, imgUrl }) {
       <div className={style.textSection}>
         <h1 className={style.postTitle}>{name}</h1>
         <p className={style.postText}>Made from: {material}</p>
-        <Link to="/details" className={style.button}>
+        <Link to={`/catalog/${_id}`} className={style.button}>
           Details
         </Link>
       </div>

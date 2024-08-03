@@ -8,3 +8,8 @@ export const getAllFurnitures = async () => {
   const result = Object.values(response);
   return result;
 };
+
+export const getOneFurniture = async (furnitureId) => {
+  const result = await request.get(`${DATA_URL}/${furnitureId}`);
+  return result;
+};
