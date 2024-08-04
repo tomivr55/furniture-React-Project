@@ -1,32 +1,74 @@
+import { useState } from "react";
 import style from "./AddFurniture.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useForm } from "../../hooks/useForm";
+import { useAddFurniture } from "../../hooks/useFurniture";
 
 export default function AddFutniture() {
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
+  const initialValues = {
+    name: "",
+    width: "",
+    height: "",
+    depth: "",
+    material: "",
+    imgUrl: "",
+    description: "",
+  };
+
+  const furnitureAdd = useAddFurniture();
+
+  const addFurnitureHandler = (values) => {
+    try {
+      furnitureAdd(values);
+      navigate(`/catalog`);
+    } catch (error) {
+      console.log(error.message);
+      // setError(error.message);
+    }
+  };
+
+  const { formValues, changeHandler, submitHandler } = useForm(
+    initialValues,
+    addFurnitureHandler
+  );
+
   return (
     <div className={style.container}>
-      <form className={style.box}>
+      <form className={style.box} onSubmit={submitHandler}>
         <h1 className={style.addTitle}>Add Furniture</h1>
         <div className={style.main}>
           <div className={style.left}>
-            <input type="text" name="name" placeholder="Name..." required="" />
+            <input
+              type="text"
+              name="name"
+              placeholder="Name..."
+              value={formValues.name}
+              onChange={changeHandler}
+            />
 
             <input
-              type="text"
+              type="number"
               name="width"
               placeholder="Width..."
-              required=""
+              value={formValues.width}
+              onChange={changeHandler}
             />
             <input
-              type="text"
+              type="number"
               name="height"
               placeholder="Height..."
-              required=""
+              value={formValues.height}
+              onChange={changeHandler}
             />
             <input
-              type="text"
+              type="number"
               name="depth"
               placeholder="Depth..."
-              required=""
+              value={formValues.depth}
+              onChange={changeHandler}
             />
           </div>
           <div className={style.right}>
@@ -34,18 +76,22 @@ export default function AddFutniture() {
               type="text"
               name="material"
               placeholder="Made from..."
-              required=""
+              value={formValues.material}
+              onChange={changeHandler}
             />
             <input
               type="text"
               name="imgUrl"
               placeholder="Upload a photo..."
-              required=""
+              value={formValues.imgUrl}
+              onChange={changeHandler}
             />
             <textarea
               name="description"
               id="description"
               placeholder="Description...."
+              value={formValues.description}
+              onChange={changeHandler}
             ></textarea>
           </div>
         </div>

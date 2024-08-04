@@ -26,3 +26,9 @@ export function useGetOneFurniture(furnitureId) {
 
   return [furniture, setFurniture];
 }
+
+export function useAddFurniture() {
+  const furnitureCreateHandler = (data) => furnitureAPI.addNewFurniture(data);
+
+  return furnitureCreateHandler;
+}

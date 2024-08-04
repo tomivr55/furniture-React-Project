@@ -13,3 +13,7 @@ export const getOneFurniture = async (furnitureId) => {
   const result = await request.get(`${DATA_URL}/${furnitureId}`);
   return result;
 };
+
+export const addNewFurniture = (furnitureData) => {
+  request.post(`${DATA_URL}`, furnitureData);
+};

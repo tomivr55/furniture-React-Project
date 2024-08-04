@@ -11,11 +11,13 @@ import DetailsFurniture from "./components/catalog/details-furniture/DetailsFurn
 import ErrorPage from "./components/error/Error";
 import { AuthenticationContext } from "./contexts/AuthContext";
 import { useState } from "react";
+import Profile from "./components/profile/Profile";
 
 function App() {
   const [authState, setAuthState] = useState({});
 
   const changeAuthState = (state) => {
+    localStorage.setItem("accessToken", state.accessToken);
     setAuthState(state);
   };
 
@@ -37,6 +39,7 @@ function App() {
         <Route path="/add-furniture" element={<AddFutniture />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:furnitureId" element={<DetailsFurniture />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
 
