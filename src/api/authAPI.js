@@ -21,3 +21,5 @@ export const register = async (
   const authData = await request.post(`${USER_URL}/register`, dataToSend);
   return authData;
 };
+
+// http://localhost:3030/users/me

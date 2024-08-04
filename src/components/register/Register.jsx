@@ -31,11 +31,20 @@ export default function Register() {
       setError("Passwords do not match!");
       return;
     }
+    if ((!username, !email, !tel, !avatar, !password, !rePassword)) {
+      setError("All fields are required!");
+      return;
+    }
+    if (password.length <= 6) {
+      setError("Password must contain at least 6 characters!");
+      return;
+    }
+
     try {
       await register(username, email, tel, avatar, password);
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      setError(error.message);
     }
   };
 

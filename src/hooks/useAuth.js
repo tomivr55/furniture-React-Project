@@ -5,9 +5,9 @@ import { AuthenticationContext } from "../contexts/AuthContext";
 export const useLogin = () => {
   const { changeAuthState } = useContext(AuthenticationContext);
   const loginHandler = async (email, password) => {
-    const result = await login(email, password);
-    changeAuthState(result);
-    return result;
+    const { password: _, ...authData } = await login(email, password);
+    changeAuthState(authData);
+    return authData;
   };
   return loginHandler;
 };
@@ -22,7 +22,7 @@ export const useRegister = () => {
     password,
     rePassword
   ) => {
-    const result = await register(
+    const { password: _, ...authData } = await register(
       username,
       email,
       tel,
@@ -30,8 +30,8 @@ export const useRegister = () => {
       password,
       rePassword
     );
-    changeAuthState(result);
-    return result;
+    changeAuthState(authData);
+    return authData;
   };
   return registerHandler;
 };

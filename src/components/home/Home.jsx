@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Furniture from "../catalog/furniture/Furniture";
 import style from "./Home.module.css";
 import { Link } from "react-router-dom";
 import * as furnitureAPI from "../../api/furnitureAPI";
+import { AuthenticationContext } from "../../contexts/AuthContext";
 
 export default function Home() {
   const [latestFurniture, setLatestFurniture] = useState([]);
+  const { isAuthenticated, username } = useContext(AuthenticationContext);
 
   useEffect(() => {
     (async () => {
@@ -27,12 +29,15 @@ export default function Home() {
             Furniture is an integral part of any interior - it informs the
             design and creates the environment within the workplace.
           </p>
-          <p>
-            If you want to show your furniture, please
-            <Link className={style.link} to={"/login"}>
-              Login.
-            </Link>
-          </p>
+          {!isAuthenticated && (
+            <p>
+              If you want to show your furniture, please
+              <Link className={style.link} to={"/login"}>
+                Login.
+              </Link>
+            </p>
+          )}
+          {isAuthenticated && <p>Welcome {username} enjoy our website.</p>}
         </div>
         <div>
           <img className={style.homePic} src="/home1.png" alt="pic" />
