@@ -1,0 +1,43 @@
+.profileCard {
+  font-family: "Jost", sans-serif;
+  width: 500px;
+  height: auto;
+  background: red;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #1e194e, #302b63, #24243e);
+  border-radius: 10px;
+  box-shadow: 5px 20px 50px #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.profileImg {
+  padding: 30px;
+}
+.profileInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+}
+
+.pic {
+  max-width: 300px;
+}
+.leftSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.personalInfo {
+  color: #fff;
+  font-size: 1.2em;
+  margin: 10px;
+}

@@ -22,4 +22,9 @@ export const register = async (
   return authData;
 };
 
+export const loggedInUser = async () => {
+  const userData = await request.get(`${USER_URL}/me`);
+  return userData;
+};
+
 // http://localhost:3030/users/me

@@ -42,8 +42,11 @@ export default function Register() {
 
     try {
       await register(username, email, tel, avatar, password);
+
       navigate("/");
     } catch (error) {
+      console.log(error);
+
       setError(error.message);
     }
   };
