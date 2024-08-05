@@ -11,6 +11,7 @@ import DetailsFurniture from "./components/catalog/details-furniture/DetailsFurn
 import ErrorPage from "./components/error/Error";
 import Profile from "./components/profile/Profile";
 import { AuthenticationContextProvider } from "./contexts/AuthContext";
+import Logout from "./components/logout/Logout";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/logout" element={<Logout />} />
 
         <Route path="*" element={<ErrorPage />} />
       </Routes>

@@ -9,11 +9,14 @@ export default function usePersistedState(key, initialState) {
     }
 
     const authData = JSON.parse(auth);
+    return authData;
   });
 
   const updateState = (value) => {
     const newState = typeof value === "function" ? value(state) : value;
+
     localStorage.setItem(key, JSON.stringify(value));
+
     setState(newState);
   };
 

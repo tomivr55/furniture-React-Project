@@ -27,4 +27,6 @@ export const loggedInUser = async () => {
   return userData;
 };
 
-// http://localhost:3030/users/me
+export const logout = () => {
+  request.get(`${USER_URL}/logout`);
+};
