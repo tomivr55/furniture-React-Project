@@ -88,4 +88,6 @@
 }
 
 .furnitureComment {
+  display: flex;
+  flex-direction: column;
 }

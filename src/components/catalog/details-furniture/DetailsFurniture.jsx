@@ -1,10 +1,40 @@
-import { useGetOneFurniture } from "../../../hooks/useFurniture";
 import style from "./DetailsFurniture.module.css";
+import { useContext } from "react";
+import { useGetOneFurniture } from "../../../hooks/useFurniture";
 import { useParams } from "react-router-dom";
+import { AuthenticationContext } from "../../../contexts/AuthContext";
+import { useForm } from "../../../hooks/useForm";
+import {
+  useCreateComment,
+  useGetAllFurnitureComments,
+} from "../../../hooks/useComments";
+
+const initialValues = {
+  comment: "",
+};
 
 export default function DetailsFurniture() {
   const { furnitureId } = useParams();
-  const [furniture, setFurniture] = useGetOneFurniture(furnitureId);
+  const [comments, setComments] = useGetAllFurnitureComments(furnitureId);
+  const createComment = useCreateComment();
+  const [furniture] = useGetOneFurniture(furnitureId);
+  const { isAuthenticated, username, userId } = useContext(
+    AuthenticationContext
+  );
+
+  const { formValues, changeHandler, submitHandler } = useForm(
+    initialValues,
+    async ({ comment }) => {
+      try {
+        const newComment = await createComment(furnitureId, comment);
+        setComments((oldComments) => [...oldComments, newComment]);
+      } catch (err) {
+        console.log(err.message);
+      }
+    }
+  );
+
+  const isAuthor = userId === furniture._ownerId;
 
   return (
     <div className={style.detailsContent}>
@@ -39,21 +69,33 @@ export default function DetailsFurniture() {
           </a>
         </div>
         <div className={style.furnitureComment}>
-          <hr />
-          <p className={style.whd}>Pesho: mnogo gotino</p>
-          <p className={style.whd}>Pesho: mnogo gotino</p>
-          <p className={style.whd}>Pesho: mnogo gotino</p>
+          <h2>Comments:</h2>
+
+          {comments.map((oneComment) => (
+            <p key={oneComment._id} className={style.whd}>
+              {oneComment.author.username}: {oneComment.text}
+            </p>
+          ))}
+
+          {comments.length === 0 && <p className={style.whd}>No comment</p>}
         </div>
       </div>
-      <div className={style.furnitureDetails}>
-        <h1 className={style.detailsTitle}>Add comments</h1>
-        <form>
-          <textarea name="comment" placeholder="Comment......"></textarea>
-          <button className={style.button} type="submit">
-            Add Comment
-          </button>
-        </form>
-      </div>
+      {isAuthenticated && (
+        <div className={style.furnitureDetails}>
+          <h1 className={style.detailsTitle}>Add comments</h1>
+          <form onSubmit={submitHandler}>
+            <textarea
+              name="comment"
+              placeholder="Comment......"
+              onChange={changeHandler}
+              value={formValues.comment}
+            ></textarea>
+            <button className={style.button} type="submit">
+              Add Comment
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 }
