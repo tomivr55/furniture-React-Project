@@ -1,6 +1,6 @@
 import { useState } from "react";
 import style from "./AddFurniture.module.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 import { useAddFurniture } from "../../hooks/useFurniture";
 
@@ -97,11 +97,6 @@ export default function AddFutniture() {
         </div>
         <button>Add</button>
       </form>
-      {/* <div className={style.info}>
-          <p>
-            If you already have an account <Link to="/login">Login</Link>
-          </p>
-        </div> */}
     </div>
   );
 }

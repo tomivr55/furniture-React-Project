@@ -14,7 +14,6 @@ export function useGetAllFurnitureComments(furniruteId) {
   useEffect(() => {
     (async () => {
       const result = await commentsAPI.getAllComments(furniruteId);
-
       setComments(result);
     })();
   }, [furniruteId]);

@@ -17,3 +17,11 @@ export const getOneFurniture = async (furnitureId) => {
 export const addNewFurniture = (furnitureData) => {
   request.post(`${DATA_URL}`, furnitureData);
 };
+
+export const deleteFurniture = (furnitureId) => {
+  request.del(`${DATA_URL}/${furnitureId}`);
+};
+
+export const updateFurniture = async (furnitureId, updatedData) => {
+  await request.put(`${DATA_URL}/${furnitureId}`, updatedData);
+};

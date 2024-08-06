@@ -1,4 +1,5 @@
 import style from "./DetailsFurniture.module.css";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { useGetOneFurniture } from "../../../hooks/useFurniture";
 import { useParams } from "react-router-dom";
@@ -8,6 +9,7 @@ import {
   useCreateComment,
   useGetAllFurnitureComments,
 } from "../../../hooks/useComments";
+import * as furnitureAPI from "../../../api/furnitureAPI";
 
 const initialValues = {
   comment: "",
@@ -21,6 +23,7 @@ export default function DetailsFurniture() {
   const { isAuthenticated, username, userId } = useContext(
     AuthenticationContext
   );
+  const navigate = useNavigate();
 
   const { formValues, changeHandler, submitHandler } = useForm(
     initialValues,
@@ -33,6 +36,15 @@ export default function DetailsFurniture() {
       }
     }
   );
+
+  const deleteFurniture = async () => {
+    try {
+      await furnitureAPI.deleteFurniture(furnitureId);
+      navigate("/catalog");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const isAuthor = userId === furniture._ownerId;
 
@@ -62,12 +74,12 @@ export default function DetailsFurniture() {
         </div>
         {isAuthor && (
           <div className={style.detailsButtons}>
-            <a className={style.button} href="">
+            <Link className={style.button} to={`/edit/${furniture._id}`}>
               Edit
-            </a>
-            <a className={style.button} href="">
+            </Link>
+            <Link className={style.button} onClick={deleteFurniture} to="">
               Delete
-            </a>
+            </Link>
           </div>
         )}
 

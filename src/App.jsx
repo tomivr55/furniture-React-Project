@@ -12,6 +12,7 @@ import ErrorPage from "./components/error/Error";
 import Profile from "./components/profile/Profile";
 import { AuthenticationContextProvider } from "./contexts/AuthContext";
 import Logout from "./components/logout/Logout";
+import EditFurniture from "./components/edit-furniture/EditFurniture";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/add-furniture" element={<AddFutniture />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:furnitureId" element={<DetailsFurniture />} />
+        <Route path="/edit/:furnitureId" element={<EditFurniture />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
