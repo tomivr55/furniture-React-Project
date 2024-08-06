@@ -27,6 +27,6 @@ export const loggedInUser = async () => {
   return userData;
 };
 
-export const logout = () => {
-  request.get(`${USER_URL}/logout`);
+export const logout = async () => {
+  await request.get(`${USER_URL}/logout`);
 };

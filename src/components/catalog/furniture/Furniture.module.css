@@ -14,8 +14,8 @@
 .textSection {
   width: 60%;
   display: flex;
-  gap: 1em;
   flex-direction: column;
+  gap: 1em;
 }
 
 .imageSection {
@@ -37,6 +37,7 @@
 
 .postText {
   color: #fff;
+  margin: 0;
 }
 
 .button {

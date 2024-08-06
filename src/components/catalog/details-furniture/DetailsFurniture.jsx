@@ -26,7 +26,7 @@ export default function DetailsFurniture() {
     initialValues,
     async ({ comment }) => {
       try {
-        const newComment = await createComment(furnitureId, comment);
+        const newComment = await createComment(furnitureId, comment, username);
         setComments((oldComments) => [...oldComments, newComment]);
       } catch (err) {
         console.log(err.message);
@@ -60,24 +60,26 @@ export default function DetailsFurniture() {
         <div className={style.detailsDescriotion}>
           <p className={style.whd}>Description: {furniture.description}</p>
         </div>
-        <div className={style.detailsButtons}>
-          <a className={style.button} href="">
-            Edit
-          </a>
-          <a className={style.button} href="">
-            Delete
-          </a>
-        </div>
+        {isAuthor && (
+          <div className={style.detailsButtons}>
+            <a className={style.button} href="">
+              Edit
+            </a>
+            <a className={style.button} href="">
+              Delete
+            </a>
+          </div>
+        )}
+
         <div className={style.furnitureComment}>
-          <h2>Comments:</h2>
+          <h1 className={style.detailsTitle}>Comments:</h1>
 
           {comments.map((oneComment) => (
             <p key={oneComment._id} className={style.whd}>
-              {oneComment.author.username}: {oneComment.text}
+              {oneComment.username} said: {oneComment.text}
             </p>
           ))}
-
-          {comments.length === 0 && <p className={style.whd}>No comment</p>}
+          {comments.length === 0 && <p className={style.whd}>No comment...</p>}
         </div>
       </div>
       {isAuthenticated && (

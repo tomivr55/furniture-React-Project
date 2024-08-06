@@ -3,15 +3,14 @@ import environment from "../environments/environment";
 
 const COMMENTS_URL = environment.apiUrlComments;
 
-const create = (furnitureId, text) =>
-  request.post(COMMENTS_URL, { furnitureId, text });
+const create = (furnitureId, text, username) =>
+  request.post(COMMENTS_URL, { furnitureId, text, username });
 
 const getAllComments = (furnitureId) => {
   const params = new URLSearchParams({
     where: `furnitureId="${furnitureId}"`,
-    load: `author=_ownerId:users`,
+    load: `author=_ownerId`,
   });
-  console.log(`${COMMENTS_URL}?${params.toString()}`);
 
   const result = request.get(`${COMMENTS_URL}?${params.toString()}`);
 

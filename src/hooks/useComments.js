@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import commentsAPI from "../api/commentsAPI";
 
 export function useCreateComment() {
-  const createHandler = (furnitureId, comment) =>
-    commentsAPI.create(furnitureId, comment);
+  const createHandler = (furnitureId, comment, username) =>
+    commentsAPI.create(furnitureId, comment, username);
 
   return createHandler;
 }
