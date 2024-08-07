@@ -21,6 +21,24 @@ export default function AddFutniture() {
   const furnitureAdd = useAddFurniture();
 
   const addFurnitureHandler = (values) => {
+    if (
+      (!values.name,
+      !values.width,
+      !values.height,
+      !values.depth,
+      !values.material,
+      !values.imgUrl,
+      !values.description)
+    ) {
+      setError("All fields are required!");
+      return;
+    }
+
+    if (values.description.length < 20) {
+      setError("Comments must be at least 20 characters!");
+      return;
+    }
+
     try {
       furnitureAdd(values);
       navigate(`/catalog`);
@@ -95,6 +113,9 @@ export default function AddFutniture() {
             ></textarea>
           </div>
         </div>
+
+        {error && <p className={style.error}>{error}</p>}
+
         <button>Add</button>
       </form>
     </div>

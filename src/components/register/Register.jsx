@@ -39,7 +39,7 @@ export default function Register() {
       return;
     }
     if (!isMatch) {
-      setError("Password dont match!");
+      setError("Look at informatin");
       return;
     }
 

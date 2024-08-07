@@ -18,8 +18,8 @@ export const addNewFurniture = (furnitureData) => {
   request.post(`${DATA_URL}`, furnitureData);
 };
 
-export const deleteFurniture = (furnitureId) => {
-  request.del(`${DATA_URL}/${furnitureId}`);
+export const deleteFurniture = async (furnitureId) => {
+  await request.del(`${DATA_URL}/${furnitureId}`);
 };
 
 export const updateFurniture = async (furnitureId, updatedData) => {

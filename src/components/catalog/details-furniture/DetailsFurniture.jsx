@@ -1,6 +1,6 @@
 import style from "./DetailsFurniture.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { useGetOneFurniture } from "../../../hooks/useFurniture";
 import { useParams } from "react-router-dom";
 import { AuthenticationContext } from "../../../contexts/AuthContext";
@@ -24,13 +24,25 @@ export default function DetailsFurniture() {
     AuthenticationContext
   );
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const { formValues, changeHandler, submitHandler } = useForm(
     initialValues,
     async ({ comment }) => {
+      if (!comment) {
+        setError(`${username} you cannot send an empty comment!`);
+        return;
+      }
+
+      if (comment.length < 10) {
+        setError("Comments must be at least 10 characters!");
+        return;
+      }
+
       try {
         const newComment = await createComment(furnitureId, comment, username);
         setComments((oldComments) => [...oldComments, newComment]);
+        setError("");
       } catch (err) {
         console.log(err.message);
       }
@@ -104,10 +116,17 @@ export default function DetailsFurniture() {
               onChange={changeHandler}
               value={formValues.comment}
             ></textarea>
+
             <button className={style.button} type="submit">
               Add Comment
             </button>
           </form>
+
+          {error && (
+            <div className={style.info}>
+              <p className={style.error}>{error}</p>
+            </div>
+          )}
         </div>
       )}
     </div>
