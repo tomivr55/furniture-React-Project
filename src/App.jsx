@@ -13,6 +13,7 @@ import Profile from "./components/profile/Profile";
 import { AuthenticationContextProvider } from "./contexts/AuthContext";
 import Logout from "./components/logout/Logout";
 import EditFurniture from "./components/edit-furniture/EditFurniture";
+import RouteGuard from "./route-guards/RouteGuards";
 
 function App() {
   return (
@@ -21,15 +22,17 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add-furniture" element={<AddFutniture />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/catalog/:furnitureId" element={<DetailsFurniture />} />
-        <Route path="/edit/:furnitureId" element={<EditFurniture />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
 
+        <Route element={<RouteGuard />}>
+          <Route path="/add-furniture" element={<AddFutniture />} />
+          <Route path="/edit/:furnitureId" element={<EditFurniture />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
 

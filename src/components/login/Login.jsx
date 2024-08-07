@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { useLogin } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 import style from "./Login.module.css";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [error, setError] = useState("");
+
   const initialValues = {
     email: "",
     password: "",
@@ -12,11 +15,15 @@ export default function Login() {
   const navigate = useNavigate();
 
   const loginHandler = async ({ email, password }) => {
+    if ((!email, !password)) {
+      setError("All fields are required!");
+      return;
+    }
     try {
       await login(email, password);
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      setError(error.message);
     }
   };
 
@@ -47,6 +54,7 @@ export default function Login() {
           <button className={style.login}>Login</button>
         </form>
         <div className={style.info}>
+          {error && <p className={style.error}>{error}</p>}
           <p>
             If you don't have an account yet
             <Link to="/register">Register</Link>

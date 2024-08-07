@@ -27,6 +27,9 @@ export default function Register() {
     password,
     rePassword,
   }) => {
+    const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{7,}$/gm;
+    const isMatch = Boolean(password.match(regex));
+
     if (password !== rePassword) {
       setError("Passwords do not match!");
       return;
@@ -35,8 +38,8 @@ export default function Register() {
       setError("All fields are required!");
       return;
     }
-    if (password.length <= 6) {
-      setError("Password must contain at least 6 characters!");
+    if (!isMatch) {
+      setError("Password dont match!");
       return;
     }
 
@@ -61,7 +64,18 @@ export default function Register() {
       <div className={style.box}>
         <form onSubmit={submitHandler}>
           <h1 className={style.title}>Register</h1>
-
+          <div className={style.passwordRequirements}>
+            <span className={style.tooltip}>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512">
+                <path d="M48 80a48 48 0 1 1 96 0A48 48 0 1 1 48 80zM0 224c0-17.7 14.3-32 32-32l64 0c17.7 0 32 14.3 32 32l0 224 32 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 512c-17.7 0-32-14.3-32-32s14.3-32 32-32l32 0 0-192-32 0c-17.7 0-32-14.3-32-32z" />
+              </svg>
+              <span className={style.tooltiptext}>
+                Passwords should be at least 7 characters long and include 1
+                lowercase alpha and one upercase character, 1 number and 1
+                special character.
+              </span>
+            </span>
+          </div>
           <input
             type="text"
             name="username"
@@ -90,6 +104,7 @@ export default function Register() {
             value={formValues.avatar}
             onChange={changeHandler}
           />
+
           <input
             type="password"
             name="password"
@@ -97,6 +112,7 @@ export default function Register() {
             value={formValues.password}
             onChange={changeHandler}
           />
+
           <input
             type="password"
             name="rePassword"

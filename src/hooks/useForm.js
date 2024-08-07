@@ -5,7 +5,7 @@ export function useForm(initialValues, submitCallback) {
 
   useEffect(() => {
     setFormValues(initialValues);
-  }, [initialValues]);
+  }, []);
 
   const changeHandler = (event) => {
     setFormValues((state) => ({
