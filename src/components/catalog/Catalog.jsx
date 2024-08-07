@@ -4,6 +4,8 @@ import { useGetAllFurniture } from "../../hooks/useFurniture";
 
 export default function Catalog() {
   const [furniture, setFurniture] = useGetAllFurniture();
+  console.log(furniture);
+
   return (
     <div className={style.allFurniture}>
       {furniture.length > 0 ? (

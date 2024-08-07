@@ -57,6 +57,7 @@ export default function DetailsFurniture() {
       console.log(error);
     }
   };
+  console.log(userId);
 
   const isAuthor = userId === furniture._ownerId;
 

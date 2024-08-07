@@ -71,8 +71,8 @@ export default function Register() {
               </svg>
               <span className={style.tooltiptext}>
                 Passwords should be at least 7 characters long and include 1
-                lowercase alpha and one upercase character, 1 number and 1
-                special character.
+                lowercase and one upercase alpha, 1 number and 1 special
+                character.
               </span>
             </span>
           </div>
