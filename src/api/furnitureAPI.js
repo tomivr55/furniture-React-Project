@@ -25,3 +25,14 @@ export const deleteFurniture = async (furnitureId) => {
 export const updateFurniture = async (furnitureId, updatedData) => {
   await request.put(`${DATA_URL}/${furnitureId}`, updatedData);
 };
+
+export const searchFurniture = async (searchData) => {
+  const params = new URLSearchParams({
+    where: `name LIKE "${searchData}"`,
+  });
+
+  const modParams = params.toString().replaceAll("+", "%20");
+  const result = await request.get(`${DATA_URL}?${modParams}`);
+
+  return result;
+};

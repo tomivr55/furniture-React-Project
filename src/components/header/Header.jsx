@@ -13,6 +13,9 @@ export default function Header() {
           <li>
             <Link to="/">Home</Link>
           </li>
+          <li>
+            <Link to="/search">Search</Link>
+          </li>
 
           <li>
             <Link to="/catalog">Catalog</Link>

@@ -14,6 +14,7 @@ import { AuthenticationContextProvider } from "./contexts/AuthContext";
 import Logout from "./components/logout/Logout";
 import EditFurniture from "./components/edit-furniture/EditFurniture";
 import RouteGuard from "./route-guards/RouteGuards";
+import Search from "./components/search/Search";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/search" element={<Search />} />
 
         <Route element={<RouteGuard />}>
           <Route path="/add-furniture" element={<AddFutniture />} />
